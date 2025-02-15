@@ -1,13 +1,2 @@
 #!/bin/bash
-
-# Vérifier si la variable CFILE est définie
-if [ -z "$CFILE" ]; then
-    echo "Erreur: La variable CFILE n'est pas définie."
-    exit 1
-fi
-
-# Extraire le nom du fichier sans l'extension
-OUTPUT_FILE="${CFILE%.c}.s"
-
-# Générer le code assembleur en syntaxe Intel
-gcc -S -masm=intel "$CFILE" -o "$OUTPUT_FILE"
+[ -z "$CFILE" ] && echo "Erreur: La variable CFILE n'est pas définie." && exit 1 || gcc -S -masm=intel "$CFILE" -o "${CFILE%.c}.s"
