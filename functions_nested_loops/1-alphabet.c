@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_alphabet - Affiche l'alphabet en minuscules suivi d'une nouvelle ligne.
- */
+ * print_alphabet - Affiche l'alphabet en minuscules.
+ */print_alphabet - suivi d'une nouvelle ligne.
 void print_alphabet(void)
 {
 char letter;
