@@ -1,20 +1,16 @@
 #include "main.h"
 
 /**
- * print_alphabet_x10 - Affiche 10 fois l'alphabet en minuscule.
- */suivi d'une nouvelle ligne.
+ * print_alphabet - Prints the alphabet in lowercase, followed by a new line.
  */
-void print_alphabet_x10(void)
+void print_alphabet(void)
 {
-int i;
 char letter;
 
-for (i = 0; i < 10; i++)
-{
 for (letter = 'a'; letter <= 'z'; letter++)
 {
-_putchar(letter);
+_putchar(letter); /* Prints each letter */
 }
-_putchar('\n');
-}
+
+_putchar('\n'); /* Prints a new line */
 }
