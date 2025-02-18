@@ -1,0 +1,15 @@
+#include "main.h"
+
+/**
+ * print_alphabet - Affiche l'alphabet en minuscules suivi d'une nouvelle ligne.
+ */
+void print_alphabet(void)
+{
+char letter;
+
+for (letter = 'a'; letter <= 'z'; letter++)
+{
+_putchar(letter);  /* Affiche chaque lettre */
+}
+_putchar('\n');  /* Affiche un retour à la ligne */
+}
