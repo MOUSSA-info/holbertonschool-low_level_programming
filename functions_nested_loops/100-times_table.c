@@ -1,32 +1,34 @@
 #include "main.h"
 
 /**
-* print_number - Prints a formatted number with alignment.
-* @n: The number to print.
+* print_number - Prints a formatted number with correct spacing
+* @num: The number to print
 */
-void print_number(int n)
+void print_number(int num)
 {
-if (n >= 100)
-{
-_putchar('0' + (n / 100));
-_putchar('0' + ((n / 10) % 10));
-}
-else if (n >= 10)
+if (num < 10)
 {
 _putchar(' ');
-_putchar('0' + (n / 10));
+_putchar(' ');
+_putchar('0' + num);
+}
+else if (num < 100)
+{
+_putchar(' ');
+_putchar((num / 10) + '0');
+_putchar((num % 10) + '0');
 }
 else
 {
-_putchar(' ');
-_putchar(' ');
+_putchar((num / 100) + '0');
+_putchar(((num / 10) % 10) + '0');
+_putchar((num % 10) + '0');
 }
-_putchar('0' + (n % 10));
 }
 
 /**
-* print_times_table - Prints the n times table, starting with 0.
-* @n: The number of the times table to print.
+* print_times_table - Prints the n times table, starting from 0
+* @n: The multiplication table size
 */
 void print_times_table(int n)
 {
@@ -40,7 +42,7 @@ for (i = 0; i <= n; i++)
 for (j = 0; j <= n; j++)
 {
 product = i * j;
-if (j != 0)
+if (j > 0)
 {
 _putchar(',');
 _putchar(' ');
