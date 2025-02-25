@@ -1,6 +1,14 @@
+#include "main.h"
 #include <unistd.h>
 
-int _putchar(char c)
+/**
+ * _putchar - écrit le caractère c sur stdout
+ * @c: Le caractère à imprimer
+ *
+ * Retourne : En cas de succès 1, en cas d'erreur -1.
+ */
+void _putchar(char c)
 {
-    return write(1, &c, 1);
+    write(1, &c, 1);  // Cette ligne écrit le caractère dans le terminal
+}
 
