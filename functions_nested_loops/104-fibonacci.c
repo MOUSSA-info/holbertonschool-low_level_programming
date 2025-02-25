@@ -1,20 +1,22 @@
 #include <stdio.h>
 
 /**
-* main - Prints the first 98 Fibonacci numbers.
-* Return: Always 0.
+* main - Prints the first 98 Fibonacci numbers
+*
+* Return: 0 (Success)
 */
 int main(void)
 {
-long a = 1, b = 2, next;
-int i;
+unsigned long a = 1, b = 2, next;
+int count;
 
-printf("%ld, %ld", a, b);
+printf("%lu, %lu", a, b);
 
-for (i = 3; i <= 98; i++)
+for (count = 3; count <= 98; count++)
 {
 next = a + b;
-printf(", %ld", next);
+printf(", %lu", next);
+
 a = b;
 b = next;
 }
@@ -22,4 +24,3 @@ b = next;
 printf("\n");
 return (0);
 }
-
