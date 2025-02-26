@@ -1,1 +1,1 @@
-pointers_arrays_string can begains
+
