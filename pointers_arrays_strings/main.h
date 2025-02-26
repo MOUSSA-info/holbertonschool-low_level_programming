@@ -5,13 +5,12 @@ void _puts(char *str);
 void print_rev(char *s);
 void rev_string(char *s);
 void puts2(char *str);
+void puts_half(char *str);
 #ifndef MAIN_H
 #define MAIN_H
 
-/* Function prototype for puts2 */
-void puts2(char *str);
-
-/* Function prototype for _putchar */
+/* Function prototypes */
+void puts_half(char *str);
 int _putchar(char c);
 
 #endif /* MAIN_H */
