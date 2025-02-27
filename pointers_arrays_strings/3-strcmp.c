@@ -7,10 +7,9 @@
 *
 * Description:
 * This function compares two strings character by character.
-*  It works exactly like the
-* standard library function `strcmp`. The comparison is based
-*  on the ASCII values of the
-* characters in the strings.
+* It works exactly like the
+* standard library function `strcmp`.
+* The comparison is based on ASCII values of characters.
 *
 * Return:
 * - A negative value if s1 is less than s2.
