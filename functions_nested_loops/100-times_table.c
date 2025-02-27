@@ -9,6 +9,7 @@
 *  a space, with a new line at the end.
 * Return: Always 0 (Success)
 */
+
 int main(void)
 {
 unsigned long fib1 = 1, fib2 = 2;
