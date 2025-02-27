@@ -1,45 +1,32 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
-* print_times_table - Prints the n times table, starting with 0.
-* @n: The multiplication table to print.
-*
-* Description: If n is greater than 15 or less than 0,
-*/
-void print_times_table(int n)
-{
-int i, j, result;
-char c;
+ * main - finds and prints the first 98 Fibonacci numbers.
+ * Description:
+ * The program calculates andprints
+ * prints the first 98 Fibonacci numbers starting with
+ * 1 and 2, separated by a comma followed by a space.
+ * The Fibonacci sequence is calculated using only integer operations and is
+ * printed to the standard output.
+ * Return: Always 0 (Success)
+ */
 
-if (n < 0 || n > 15)
-return;
+int main(void)
+{
+unsigned long a = 1, b = 2;
+unsigned long temp;
+int i;
 
-for (i = 0; i <= n; i++)
+printf("%lu, %lu", a, b);
+
+for (i = 3; i <= 98; i++)
 {
-for (j = 0; j <= n; j++)
-{
-result = i * j;
-if (j != 0)
-{
-_putchar(',');
-_putchar(' ');
-}
-if (result >= 100)
-{
-c = (result / 100) + '0';
-_putchar(c);
-result %= 100;
-}
-if (result >= 10)
-{
-c = (result / 10) + '0';
-_putchar(c);
-result %= 10;
-}
-c = result + '0';
-_putchar(c);
+temp = a + b;
+printf(", %lu", temp);
+a = b;
+b = temp;
 }
 
-_putchar('\n');
-}
+printf("\n");
+(return 0);
 }
