@@ -1,24 +1,20 @@
 #include "main.h"
-
 /**
-* _strcmp - Compares two strings
-* @s1: The first string to be compared
-* @s2: The second string to be compared
+* string_toupper - Changes all lowercase letters of a string to uppercase.
+* @str: The input string.
 *
-* Description: This function compares two strings character by character.
-* It returns an integer less than,
-* equal to, or greater than zero if s1 is found,
-* respectively, to be less than, to match, or be greater than s2.
-*
-* Return: 0 if the strings are equal, a negative value if s1 < s2,
-*         or a positive value if s1 > s2
+* Return: The modified string.
 */
-int _strcmp(char *s1, char *s2)
+char *string_toupper(char *str)
 {
-while (*s1 && (*s1 == *s2))
+int i = 0;
+
+while (str[i] != '\0')
 {
-s1++;
-s2++;
+
+if (str[i] >= 'a' && str[i] <= 'z')
+	str[i] = str[i] - 32;
+i++;
 }
-return (*(unsigned char *)s1 - *(unsigned char *)s2);
+return (str);
 }
