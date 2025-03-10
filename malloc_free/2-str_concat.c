@@ -5,7 +5,6 @@
 * str_concat - Concatenates two strings
 * @s1: The first string
 * @s2: The second string
-*
 * Description: Allocates memory for a new string
 * that contains the contents of
 * s1 followed by s2, null-terminated.
@@ -27,14 +26,10 @@ s2 = "";
 
 len1 = strlen(s1);
 len2 = strlen(s2);
-
 result = malloc((len1 + len2 + 1) * sizeof(char));
 if (result == NULL)
 return (0);
-
 strcpy(result, s1);
-
 strcat(result, s2);
-
 return (result);
 }
