@@ -10,7 +10,7 @@
 */
 char *_strdup(char *str)
 {
-char *duplicate;
+char *Duplicated;
 size_t len;
 
 if (str == NULL)
@@ -20,11 +20,11 @@ return (NULL);
 
 len = strlen(str) + 1;
 
-duplicate = malloc(len);
-if (duplicate == NULL)
+Duplicated = malloc(len);
+if (Duplicated == NULL)
 {
-return (0);
+return (NULL);
 }
-memcpy(duplicate, str, len);
-return (duplicate);
+strcpy(Duplicated, str);
+return (Duplicated);
 }
