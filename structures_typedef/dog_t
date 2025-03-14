@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include "dog.h"
+
+int main(void)
+{
+dog_t my_dog;
+
+init_dog(&my_dog, "Buddy", 3.5, "John");
+
+print_dog(&my_dog);
+
+return (0);
+}
