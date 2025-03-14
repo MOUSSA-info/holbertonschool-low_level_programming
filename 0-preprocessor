@@ -1,2 +1,0 @@
-#!/bin/bash
-[ -z "$CFILE" ] && { echo "Error: CFILE variable is not set."; exit 1; } || cpp "$CFILE" -o c
