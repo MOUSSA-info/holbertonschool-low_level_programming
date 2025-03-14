@@ -16,5 +16,4 @@ typedef struct dog {
 /* Function prototypes */
 dog_t *new_dog(char *name, float age, char *owner);
 
-#endif /* DOG_H */
-
+#endif
