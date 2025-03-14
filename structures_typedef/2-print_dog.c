@@ -14,6 +14,7 @@
 * If an element is NULL, print (nil) instead.
 * If d is NULL, print nothing.
 */
+
 void print_dog(struct dog *d)
 {
 if (d == NULL)
