@@ -1,12 +1,12 @@
-#include "dog.h"
 #include <stdlib.h>
 #include <string.h>
+#include "dog.h"
 
 /**
 * new_dog - Creates a new dog with copies of name and owner.
-* @name: The dog's name.
-* @age: The dog's age.
-* @owner: The dog's owner.
+* @name: The name of the dog.
+* @age: The age of the dog.
+* @owner: The owner of the dog.
 *
 * Return: Pointer to the new dog, or NULL on failure.
 */

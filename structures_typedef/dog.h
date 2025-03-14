@@ -7,24 +7,14 @@
  * @age: The age of the dog.
  * @owner: The owner of the dog.
  */
-struct dog {
+typedef struct dog {
     char *name;
     float age;
     char *owner;
-};
+} dog_t;
 
-/**
- * print_dog - Prints the details of a struct dog.
- * @d: Pointer to the struct dog to print.
- *
- * Format:
- * Name: <name>
- * Age: <age>
- * Owner: <owner>
- *
- * If an element is NULL, print (nil) instead.
- * If d is NULL, print nothing.
- */
-void print_dog(struct dog *d);
+/* Function prototypes */
+dog_t *new_dog(char *name, float age, char *owner);
 
-#endif
+#endif /* DOG_H */
+
