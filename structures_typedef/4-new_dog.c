@@ -1,38 +1,71 @@
-#include <stdlib.h>
-#include <string.h>
 #include "dog.h"
+#include <stdlib.h>
 
 /**
-* new_dog - Creates a new dog with copies of name and owner.
-* @name: The name of the dog.
-* @age: The age of the dog.
-* @owner: The owner of the dog.
-*
-* Return: Pointer to the new dog, or NULL on failure.
+* _strlen - return length of a string
+* @s: string
+* Return: length
 */
 
-dog_t *new_dog(char *name, float age, char *owner)
+int	_strlen(char *s)
 {
-dog_t *new_d;
+int	length = 0;
 
-new_d = malloc(sizeof(dog_t));
-if (new_d == NULL)
-return (NULL);
-new_d->name = (name == NULL) ? strdup("") : strdup(name);
-if (new_d->name == NULL)
-{
-free(new_d);
-return (NULL);
+while (s[length] != '\0')
+	length++;
+return (length);
 }
 
-new_d->owner = (owner == NULL) ? strdup("") : strdup(owner);
-if (new_d->owner == NULL)
+/**
+* *_strcpy - copies string to dest
+* @dest: copied string
+* @src: string to copy
+* Return: dest
+*/
+
+char	*_strcpy(char *dest, char *src)
 {
-free(new_d->name);
-free(new_d);
-return (NULL);
+int	i;
+
+i = 0;
+while (src[i] != '\0')
+{
+	dest[i] = src[i];
+	i++;
+}
+dest[i] = '\0';
+return (dest);
 }
 
-new_d->age = age;
-return (new_d);
+/**
+* new_dog - creates a new dog
+* @name: name of dog.
+* @age: age of dog.
+* @owner: owner of dog.
+* Return: NULL if fail.
+*/
+
+dog_t	*new_dog(char *name, float age, char *owner)
+{
+dog_t	*new_dog = malloc(sizeof(dog_t));
+
+if (new_dog == NULL)
+	return (NULL);
+new_dog->name = malloc(_strlen(name) + 1);
+if (new_dog->name == NULL)
+{
+	free(new_dog);
+	return (NULL);
+}
+_strcpy(new_dog->name, name);
+new_dog->owner = malloc(_strlen(owner) + 1);
+if (new_dog->owner == NULL)
+{
+	free(new_dog->name);
+	free(new_dog);
+	return (NULL);
+}
+_strcpy(new_dog->owner, owner);
+new_dog->age = age;
+return (new_dog);
 }
