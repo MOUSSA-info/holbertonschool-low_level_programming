@@ -1,5 +1,5 @@
-#include "main.h"
-#include <stdio.h>
+#include "stdio.h"
+#include "function_pointers.h"
 
 
 /**
