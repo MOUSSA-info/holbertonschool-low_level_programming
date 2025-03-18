@@ -1,15 +1,12 @@
 #include "variadic_functions.h"
 
 /**
-* sum_them_all - Calculates the sum of
-* variable number of integers
-* @n: Number of integers to sum (must be >= 0)
-* @...: Variable arguments (integers) to be summed
-*
-* Returns:
-* - Sum of all provided integers
-* - 0 if n == 0 (no numbers to sum)
-*/
+ * sum_them_all - Returns the sum of all its parameters
+ * @n: Number of parameters
+ * @...: Variable number of arguments
+ *
+ * Return: Sum of all parameters, or 0 if n == 0
+ */
 int sum_them_all(const unsigned int n, ...)
 {
 va_list args;
