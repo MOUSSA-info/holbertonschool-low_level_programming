@@ -8,26 +8,31 @@
 * @...: Variable list of strings
 *
 * Description:
-* - Prints "(nil)" for NULL strings.
-* - Prints nothing if `n == 0`, except the final new line.
+* - Prints each string from the variable arguments.
+* - If a string is NULL, prints "(nil)" instead.
+* - If the separator is NULL, it is not printed between strings.
+* - Prints a new line at the end.
 */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 va_list args;
 unsigned int i;
+char *str;
 
 va_start(args, n);
 
 for (i = 0; i < n; i++)
 {
-char *current_str = va_arg(args, char *);
-if (current_str == NULL)
+str = va_arg(args, char *);
+
+if (str == NULL)
 printf("(nil)");
-printf("%s", current_str);
+else
+printf("%s", str);
 if (separator != NULL && i < n - 1)
 printf("%s", separator);
 }
 
-va_end(args);
 printf("\n");
+va_end(args);
 }
