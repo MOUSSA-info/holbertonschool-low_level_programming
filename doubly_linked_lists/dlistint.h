@@ -13,6 +13,8 @@ typedef struct dlistint_s
     struct dlistint_s *prev;
     struct dlistint_s *next;
 } dlistint_t;
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+
+/* Function prototype for summing all data in a doubly linked list */
+int sum_dlistint(dlistint_t *head);
 
 #endif
