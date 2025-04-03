@@ -3,51 +3,69 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include "main.h"
 
 /**
-* print_error - Prints an error message and exits with a specific code.
-* @exit_code: The exit code.
-* @message: The error message to print.
-* @file_name: The name of the file causing the error.
+* file_error - check the file can be open
+* @src_fd: Source file decsriptor.
+* @dest_fd: Dest file descriptor.
+* @argv: Argument vector
+* Return: No return
 */
-void print_error(int exit_code, const char *message, const char *file_name)
+void file_error(int src_fd, int dest_fd, char *argv[])
 {
-dprintf(STDERR_FILENO, "%s %s\n", message, file_name);
-exit(exit_code);
+if (src_fd == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit(98);
+}
+if (dest_fd == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+exit(99);
+}
 }
 
 /**
-* main - Copies the content of one file to another file.
-* @argc: The number of arguments passed to the program.
-* @argv: The array of arguments passed to the program.
-*
-* Return: 0 on success, exits with specific codes on failure.
+* main - check the code
+* @argc: Number of arguments
+* @argv: Argument vector
+* Return: Always 0.
 */
-
 int main(int argc, char *argv[])
 {
-int fd_from, fd_to, bytes_read, bytes_written;
+int src_fd, dest_fd, err_close;
+ssize_t n_read, n_written;
 char buffer[1024];
 if (argc != 3)
-print_error(97, "Usage: cp file_from file_to", "");
-fd_from = open(argv[1], O_RDONLY);
-if (fd_from == -1)
-print_error(98, "Error: Can't read from file", argv[1]);
-fd_to = open(argv[2],
-O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-if (fd_to == -1)
-print_error(99, "Error: Can't write to", argv[2]);
-while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 {
-bytes_written = write(fd_to, buffer, bytes_read);
-if (bytes_written != bytes_read)
-print_error(99, "Error: Can't write to", argv[2]);
+dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+exit(97);
 }
-if (bytes_read == -1)
-print_error(98, "Error: Can't read from file", argv[1]);
-if (close(fd_from) == -1)
-print_error(100, "Error: Can't close fd", argv[1]);
-if (close(fd_to) == -1)
-print_error(100, "Error: Can't close fd", argv[2]);
+src_fd = open(argv[1], O_RDONLY);
+dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+file_error(src_fd, dest_fd, argv);
+n_read = 1024;
+while (n_read == 1024)
+{
+n_read = read(src_fd, buffer, 1024);
+if (n_read == -1)
+file_error(-1, 0, argv);
+n_written = write(dest_fd, buffer, n_read);
+if (n_written == -1)
+file_error(0, -1, argv);
+}
+err_close = close(src_fd);
+if (err_close == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src_fd);
+exit(100);
+}
+err_close = close(dest_fd);
+if (err_close == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src_fd);
+exit(100);
+}
 return (0);
 }
