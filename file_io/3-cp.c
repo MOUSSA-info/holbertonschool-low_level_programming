@@ -5,6 +5,8 @@
 #include <sys/stat.h>
 #include "main.h"
 
+#define BUFFER_SIZE 1024
+
 /**
 * file_error - check the file can be open
 * @src_fd: Source file decsriptor.
