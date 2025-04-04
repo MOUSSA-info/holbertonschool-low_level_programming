@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-
 #define BUFFER_SIZE 1024
 
 /**
@@ -19,7 +18,6 @@ else
 dprintf(STDERR_FILENO, "%s", message);
 exit(exit_code);
 }
-
 /**
 * close_file - Ferme un descripteur de fichier et gère les erreurs
 * @fd: Le descripteur de fichier à fermer
@@ -29,7 +27,6 @@ void close_file(int fd)
 if (close(fd) == -1)
 dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd), exit(100);
 }
-
 /**
 * main - Copie le contenu d'un fichier vers un autre fichier
 * @argc: Le nombre d'arguments
@@ -63,4 +60,3 @@ close_file(file_from);
 close_file(file_to);
 return (0);
 }
-
